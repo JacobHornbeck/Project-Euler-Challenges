@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -11,20 +12,33 @@ void Problem3();
 
 int main() {
     Problem3();
-    Problem2();
-    Problem1();
+    //Problem2();
+    //Problem1();
 }
 
 /* Completed:  */
-bool Prime(int n) {
-    for (int i = 0; i < n; i++) {
+bool Prime(long n) {
+    for (long i = 0; i < sqrt(n); i++) {
         if (n%i==0)
             return false;
     }
     return true;
 }
 void Problem3() {
-
+    cout << "Begin P3" << endl;
+    long num = 600851475143;
+    long pFact = 0;
+    for (long i = num-1; i > 1; i--) {
+        cout << i << endl;
+        if (num%i==0) {
+            cout << i << " - factor" << endl;
+            if (Prime(i)) {
+                pFact = i;
+                return;
+            }
+        }
+    }
+    cout << "End P3" << endl;
 }
 
 /* Completed: Friday, June 12 */
